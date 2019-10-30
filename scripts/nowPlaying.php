@@ -42,8 +42,13 @@ if(preg_match("#^/np ([a-zA-Z0-9\-\_]{5,})$#iu", $_TEXT, $cbb) || $_TEXT == 'np'
 							{
 								$np = 'Last played';
 							}
-						$mess = $np.': <b>'.$array['recenttracks']['track'][0]['artist']['#text'].'</b> - <a href="'.$array['recenttracks']['track'][0]['url'].'">'.$array['recenttracks']['track'][0]['name'].'</a>';
-						
+						if (isset($array['recenttracks']['track'][0]['artist']['#text']))
+							{
+								$mess = $np.': <b>'.$array['recenttracks']['track'][0]['artist']['#text'].'</b> - <a href="'.$array['recenttracks']['track'][0]['url'].'">'.$array['recenttracks']['track'][0]['name'].'</a>';
+							}
+						else	{
+								$mess='Nothing was playing.';
+							}
 						$mess .= PHP_EOL;
 						$mess .= '/last_'.$user.' - последние 10 треков'.PHP_EOL;
 					}
