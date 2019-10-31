@@ -2,9 +2,9 @@
 
 # now playing
 
-if(preg_match("#^/np ([a-zA-Z0-9\-\_]{5,})$#iu", $_TEXT, $cbb) | $_TEXT == 'np' | $_TEXT == '/np')
+if(preg_match("#^/np ([a-zA-Z0-9\-\_]{5,})$#iu", $_TEXT, $cbb) | $_TEXT == 'np' | $_TEXT == '/np' | $_TEXT == '/np@ADARefactorBot')
 	{
-		if($_TEXT == 'np' | $_TEXT == '/np')
+		if($_TEXT == 'np' | $_TEXT == '/np' | $_TEXT == '/np@ADARefactorBot')
 			{
 				$q = mysql_query("SELECT * FROM `lastfm_users` WHERE `id_user` = ".$_USER['id']);
 				if(mysql_num_rows($q) == 1)
